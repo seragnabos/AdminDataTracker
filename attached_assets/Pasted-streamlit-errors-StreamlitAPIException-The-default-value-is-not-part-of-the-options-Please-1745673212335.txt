@@ -1,0 +1,27 @@
+streamlit.errors.StreamlitAPIException: The default value 'الاسم' is not part of the options. Please make sure that every default values also exists in the options.
+
+Traceback:
+File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 121, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 640, in code_to_exec
+    exec(code, module.__dict__)
+File "/home/runner/workspace/app.py", line 307, in <module>
+    create_export_section(st.session_state.filtered_df)
+File "/home/runner/workspace/components.py", line 326, in create_export_section
+    selected_columns = st.multiselect(
+                       ^^^^^^^^^^^^^^^
+File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/metrics_util.py", line 410, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/widgets/multiselect.py", line 230, in multiselect
+    return self._multiselect(
+           ^^^^^^^^^^^^^^^^^^
+File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/widgets/multiselect.py", line 278, in _multiselect
+    default_values = get_default_indices(indexable_options, default)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/lib/options_selector_utils.py", line 91, in get_default_indices
+    default_indices = check_and_convert_to_indices(indexable_options, default)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/lib/options_selector_utils.py", line 74, in check_and_convert_to_indices
+    raise StreamlitAPIException(

@@ -1,0 +1,86 @@
+وصلتني مشكلتك الجديدة بالضبط.
+
+باختصار: عندك الآن مشكلة مزدوجة في الكود:
+
+تحذير:
+Streamlit يقول لك إنك وضعت عنصر فيه label فاضي (label="") وهذا شيء غير محبذ وسيتم منعه مستقبلاً.
+➔ يعني لازم كل selectbox أو input يكون له نص واضح، أو تخفيه بطريقة رسمية (label_visibility="collapsed").
+
+خطأ قاتل:
+لا زالت عندك مشكلة تكرار المفتاح (duplicate key) في key='chart_style_advanced_analytics_org_chart' رغم أنك تحاول تميّز المفاتيح.
+
+طيب سراج، خلينا نصحح الاثنين معًا بخطوات واضحة:
+أولًا: حل مشكلة label got an empty value
+تأكد أن كل selectbox أو input عندك، فيه نص عنوان (label).
+مثلاً بدل:
+
+python
+Copy
+Edit
+st.selectbox("", options)
+➔ خليها:
+
+python
+Copy
+Edit
+st.selectbox("اختر خياراً:", options)
+ولو كنت تحتاج تخفي العنوان، استخدم:
+
+python
+Copy
+Edit
+st.selectbox(
+    label="اختر خياراً:",
+    options=options,
+    label_visibility="collapsed"  # هذا رسمي ومعتمد
+)
+ثانيًا: حل مشكلة تكرار key
+واضح أنك صحّحت بعض المفاتيح، لكن لسه بعض الأماكن تعيد استخدام نفس المفتاح.
+➔ لازم كل مكان يكون له مفتاح مختلف 100%.
+
+مثال صحيح:
+
+python
+Copy
+Edit
+page_context = "advanced_analytics_org_chart"
+
+chart_style = st.sidebar.selectbox(
+    "اختيار نوع المخطط:",
+    ["مخطط شجري", "مخطط أعمدة", "مخطط دائري"],
+    key=f"chart_style_{page_context}"
+)
+❗ ملاحظة مهمة:
+
+لو عندك أكثر من selectbox في نفس الصفحة → زدهم تفاصيل إضافية في المفتاح.
+مثلاً:
+
+python
+Copy
+Edit
+key=f"chart_style_{page_context}_first"
+key=f"chart_style_{page_context}_second"
+أو ممكن بناءً على المتغيرات أو اسم العنصر نفسه.
+
+مختصر الحل العملي الكامل لك
+لو تبي ترتاح أكثر، خلي عندك دالة ذكية تولد لك المفاتيح مثل:
+
+python
+Copy
+Edit
+def make_unique_key(base_key: str, suffix: str = "") -> str:
+    if suffix:
+        return f"{base_key}_{suffix}"
+    return base_key
+
+# استخدام:
+chart_style = st.sidebar.selectbox(
+    "اختيار نوع المخطط:",
+    ["مخطط شجري", "مخطط أعمدة", "مخطط دائري"],
+    key=make_unique_key("chart_style", "advanced_analytics_org_chart")
+)
+تلخيص سريع:
+
+المشكلة	الحل
+label got an empty value	ضع نص واضح للـ label أو استخدم label_visibility="collapsed"
+StreamlitDuplicateElementKey	تأكد أن كل عنصر له مفتاح (key) مختلف تمامًا عن الباقي

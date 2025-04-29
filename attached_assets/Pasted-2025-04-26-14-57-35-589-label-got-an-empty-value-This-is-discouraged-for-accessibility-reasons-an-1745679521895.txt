@@ -1,0 +1,54 @@
+2025-04-26 14:57:35.589 `label` got an empty value. This is discouraged for accessibility reasons and may be disallowed in the future by raising an exception. Please provide a non-empty label and hide it with label_visibility if needed.
+2025-04-26 14:57:47.376 Uncaught app execution
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 121, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 640, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/runner/workspace/app.py", line 500, in <module>
+    display_advanced_analytics()
+  File "/home/runner/workspace/advanced_analytics.py", line 160, in display_advanced_analytics
+    chart_style = st.sidebar.selectbox(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/metrics_util.py", line 410, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/widgets/selectbox.py", line 251, in selectbox
+    return self._selectbox(
+           ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/widgets/selectbox.py", line 297, in _selectbox
+    element_id = compute_and_register_element_id(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/lib/utils.py", line 239, in compute_and_register_element_id
+    _register_element_id(ctx, element_type, element_id)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/lib/utils.py", line 140, in _register_element_id
+    raise StreamlitDuplicateElementKey(user_key)
+streamlit.errors.StreamlitDuplicateElementKey: There are multiple elements with the same `key='chart_style_select'`. To fix this, please make sure that the `key` argument is unique for each element you create.
+2025-04-26 14:57:49.385 `label` got an empty value. This is discouraged for accessibility reasons and may be disallowed in the future by raising an exception. Please provide a non-empty label and hide it with label_visibility if needed.
+2025-04-26 14:57:58.882 Uncaught app execution
+Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/exec_code.py", line 121, in exec_func_with_error_handling
+    result = func()
+             ^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 640, in code_to_exec
+    exec(code, module.__dict__)
+  File "/home/runner/workspace/app.py", line 500, in <module>
+    display_advanced_analytics()
+  File "/home/runner/workspace/advanced_analytics.py", line 160, in display_advanced_analytics
+    chart_style = st.sidebar.selectbox(
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/runtime/metrics_util.py", line 410, in wrapped_func
+    result = non_optional_func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/widgets/selectbox.py", line 251, in selectbox
+    return self._selectbox(
+           ^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/widgets/selectbox.py", line 297, in _selectbox
+    element_id = compute_and_register_element_id(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/lib/utils.py", line 239, in compute_and_register_element_id
+    _register_element_id(ctx, element_type, element_id)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.11/site-packages/streamlit/elements/lib/utils.py", line 140, in _register_element_id
+    raise StreamlitDuplicateElementKey(user_key)
+streamlit.errors.StreamlitDuplicateElementKey: There are multiple elements with the same `key='chart_style_select'`. To fix this, please make sure that the `key` argument is unique for each element you create
